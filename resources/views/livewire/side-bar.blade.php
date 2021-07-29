@@ -32,7 +32,11 @@
           </div>
 
           <div class="md:w-9/12 sm pt-4">
-              <div x-show="openTab === 1">Tab #1</div>
+              <div x-show="openTab === 1">Tab #1
+              
+                    <livewire:card-metrics>
+
+              </div>
               <div x-show="openTab === 2">Tab #2</div>
               <div x-show="openTab === 3">Tab #3</div>
               <div x-show="openTab === 4">Tab #4</div>
