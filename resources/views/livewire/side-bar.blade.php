@@ -54,10 +54,13 @@
               <div x-show="openTab === 2">register</div>
               
               <div x-show="openTab === 3">Tab #3</div>
-              <div x-show="openTab === 4">Tab #4</div>
+              <div x-show="openTab === 4">
+                    <livewire:new-transaction>          
+        
+              </div>
               <div x-show="openTab === 5">
                 
-                <livewire:calculator>
+                    <livewire:calculator>
 
               </div>
               
