@@ -7,30 +7,32 @@
             <div class="md:w-5/6 md:top-0 content-center md:content-start text-left justify-between">
                 <ul class="list-reset flex flex-row md:flex-col py-0 md:py-3 px-1 md:px-2 text-center md:text-left">
                     <li @click="openTab = 1" :class="{ '-mb-px': openTab === 1 }"class="mr-3 flex-1">
-                        <a href="#" :class="openTab === 1 ? activeClasses : inactiveClasses" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-pink-500">
-                            <i class="fas fa-tasks pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Dashboard </span>
+                        <a href="#" :class="openTab === 1 ? 'text-white' : 'text-gray-600'" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-pink-500">
+                            <i class="fas fa-tasks pr-0 md:pr-3 text-blue-600"></i> Tablero 
                         </a>
                     </li>
+
                     @if(  Auth::user()->rol_id  === 1)
-                    <li @click="openTab = 2" :class="{ '-mb-px': openTab === 2 }"class="mr-3 flex-1">
-                        <a href="#" :class="openTab === 2 ? activeClasses : inactiveClasses" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-pink-500">
-                            <i class="fas fa-tasks pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Crear Uuario   </span>
+                    <li @click="openTab = 2" :class="{ '-mb-px': openTab === 2 }" class="mr-3 flex-1">
+                        <a href="#" :class="openTab === 2 ? 'text-white' : 'text-gray-600'" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-pink-500">
+                            <i class="fas fa-tasks pr-0 md:pr-3 text-blue-600"></i> Crear Uuario   
+                        </a>
+                    </li>
+                    
+                    <li @click="openTab = 3" ::class="{ '-mb-px': openTab === 3 }"  class="mr-3 flex-1">
+                        <a :class="openTab === 3 ? 'text-white' : 'text-gray-600'" href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500">
+                            <i class="fa fa-envelope pr-0 md:pr-3 text-blue-600"></i> Estadisticas
                         </a>
                     </li>
                     @endif
-                    <li @click="openTab = 3" :class="{ '-mb-px': openTab === 3 }"  class="mr-3 flex-1">
-                        <a :class="openTab === 3 ? activeClasses : inactiveClasses" href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500">
-                            <i class="fa fa-envelope pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Messages</span>
-                        </a>
-                    </li>
-                    <li @click="openTab = 4" :class="{ '-mb-px': openTab === 4 }" class="mr-3 flex-1">
-                        <a :class="openTab === 4 ? activeClasses : inactiveClasses" href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-blue-600">
-                            <i class="fas fa-chart-area pr-0 md:pr-3 text-blue-600"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">Analytics</span>
+                    <li @click="openTab = 4" :class="{ '-mb-px': openTab === 4 }"  class="mr-3 flex-1">
+                        <a :class="openTab === 4 ? 'text-white' : 'text-gray-600'" href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500">
+                            <i class="fas fa-chart-area pr-0 md:pr-3 text-blue-600"></i> Nueva Transacci&oacute;n
                         </a>
                     </li>
                     <li @click="openTab = 5" :class="{ '-mb-px': openTab === 5 }" class="mr-3 flex-1">
-                        <a :class="openTab === 5 ? activeClasses : inactiveClasses" href="#" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-red-500">
-                            <i class="fa fa-wallet pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Payments</span>
+                        <a :class="openTab === 5 ? 'text-white' : 'text-gray-600'" href="#" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-red-500">
+                            <i class="fa fa-wallet pr-0 md:pr-3 text-blue-600"></i> Calculadora
                         </a>
                     </li>
                 </ul>
