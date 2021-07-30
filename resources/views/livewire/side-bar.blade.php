@@ -51,7 +51,10 @@
               </div>
            
              
-              <div x-show="openTab === 2">register</div>
+              <div x-show="openTab === 2">
+                    <livewire:create-user> 
+
+              </div>
               
               <div x-show="openTab === 3">
                     <livewire:stadistics> 
