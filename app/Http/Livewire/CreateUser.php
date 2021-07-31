@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class CreateUser extends Component
 {   
@@ -14,7 +15,12 @@ class CreateUser extends Component
 
     public function render()
     {
-        return view('livewire.create-user');
+        $users = DB::table('users')->paginate(5);
+        // echo '<pre>';
+        // var_dump($users);
+        // echo '</pre>';
+        // die();
+        return view('livewire.create-user')->with('users' , $users);
     }
 
     private function resetCreateForm(){
