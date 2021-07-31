@@ -16,10 +16,6 @@ class CreateUser extends Component
     public function render()
     {
         $users = DB::table('users')->paginate(5);
-        // echo '<pre>';
-        // var_dump($users);
-        // echo '</pre>';
-        // die();
         return view('livewire.create-user')->with('users' , $users);
     }
 
