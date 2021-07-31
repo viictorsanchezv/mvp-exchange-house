@@ -46,20 +46,10 @@
               </div>
            
              
-<<<<<<< HEAD
               <div x-show="openTab === 2">
                     <livewire:create-user>
 
               </div>
-=======
-                <div x-show="openTab === 2">
-               
-                @if(  Auth::user()->rol_id  === 1)
-                @include('auth.register') 
-                   
-                @endif
-                </div>
->>>>>>> origin/eliana_branch
               
               <div x-show="openTab === 3">
                     <livewire:graphic-metrics>
