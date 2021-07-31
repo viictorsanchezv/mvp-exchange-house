@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\country;
+use App\Models\Country;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CountryFactory extends Factory
@@ -12,7 +12,7 @@ class CountryFactory extends Factory
      *
      * @var string
      */
-    protected $model = country::class;
+    protected $model = Country::class;
 
     /**
      * Define the model's default state.
