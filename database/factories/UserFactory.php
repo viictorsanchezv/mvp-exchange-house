@@ -30,11 +30,7 @@ class UserFactory extends Factory
             'user' => $this->faker->unique()->userName(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
-<<<<<<< HEAD
-            'password' => Hash::make('micontraseña'), // password
-=======
             'password' => Hash::make('prueba'), // password
->>>>>>> eliana_branch
             'remember_token' => Str::random(10),
             'rol_id' => rand(1,2),
         ];
