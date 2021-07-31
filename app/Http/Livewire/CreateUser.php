@@ -15,7 +15,7 @@ class CreateUser extends Component
 
     public function render()
     {
-        $users = DB::table('users')->paginate(5);
+        $users = User::paginate(5);
         // echo '<pre>';
         // var_dump($users);
         // echo '</pre>';
@@ -32,6 +32,11 @@ class CreateUser extends Component
     }
 
     public function store(){
+
+        $this->validate([
+            'name' => 'required|min:5',
+            'email' => 'required|email:rfc,dns'
+        ]);
 
         $user = User::updateOrCreate(['user' => $this->name, 'email' => $this->email ],[
             'name' => $this->name,
