@@ -29,13 +29,13 @@
                 <div  class="flex items-center justify-center mt-4">
                     
                     <button class=" w-full text-center rounded-md mt-8 px-4 py-2 bg-blueP-dark text-white text-xs  uppercase  hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
-                    {{ __('Log in') }}
+                    {{ __('Iniciar Sesión') }}
                     </button>
                 </div>
                 <div class="flex items-center justify-end mt-4">
                     @if (Route::has('password.request'))
-                        <a class="underline text-sm text-white hover:text-gray-900" href="{{ route('password.request') }}">
-                            {{ __('Forgot your password?') }}
+                        <a class="underline text-sm text-white hover:text-gray-100" href="{{ route('password.request') }}">
+                            {{ __('Recuperar contraseña') }}
                         </a>
                     @endif
 
