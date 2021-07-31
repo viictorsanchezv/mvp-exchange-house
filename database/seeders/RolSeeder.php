@@ -13,7 +13,7 @@ class RolSeeder extends Seeder
      */
     public function run()
     {
-        $roles = array("Admin", "Vendedor");
+        $roles = array("Administrador", "Vendedor");
          foreach ($roles as $rol){
             Rol::create([
                 'name' => $rol
