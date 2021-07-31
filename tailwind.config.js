@@ -97,6 +97,7 @@ module.exports = {
       'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
       'gradient-to-tl': 'linear-gradient(to top left, var(--tw-gradient-stops))',
       'main-image': "url('/images/fondo-login.jpg')",
+      'password-image': "url('/images/seguridad-password.jpg')",
     },
     backgroundOpacity: (theme) => theme('opacity'),
     backgroundPosition: {

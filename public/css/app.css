@@ -17921,6 +17921,10 @@ video {
   background-image: url('/images/fondo-login.jpg');
 }
 
+.bg-password-image {
+  background-image: url('/images/seguridad-password.jpg');
+}
+
 .from-transparent {
   --tw-gradient-from: transparent;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -49692,6 +49696,10 @@ video {
     background-image: url('/images/fondo-login.jpg');
   }
 
+  .sm\:bg-password-image {
+    background-image: url('/images/seguridad-password.jpg');
+  }
+
   .sm\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -81449,6 +81457,10 @@ video {
 
   .md\:bg-main-image {
     background-image: url('/images/fondo-login.jpg');
+  }
+
+  .md\:bg-password-image {
+    background-image: url('/images/seguridad-password.jpg');
   }
 
   .md\:from-transparent {
@@ -113210,6 +113222,10 @@ video {
     background-image: url('/images/fondo-login.jpg');
   }
 
+  .lg\:bg-password-image {
+    background-image: url('/images/seguridad-password.jpg');
+  }
+
   .lg\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -144969,6 +144985,10 @@ video {
     background-image: url('/images/fondo-login.jpg');
   }
 
+  .xl\:bg-password-image {
+    background-image: url('/images/seguridad-password.jpg');
+  }
+
   .xl\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -176726,6 +176746,10 @@ video {
 
   .\32xl\:bg-main-image {
     background-image: url('/images/fondo-login.jpg');
+  }
+
+  .\32xl\:bg-password-image {
+    background-image: url('/images/seguridad-password.jpg');
   }
 
   .\32xl\:from-transparent {
