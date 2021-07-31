@@ -49,7 +49,13 @@
               </div>
            
              
-              <div x-show="openTab === 2">register</div>
+                <div x-show="openTab === 2">
+               
+                @if(  Auth::user()->rol_id  === 1)
+                @include('auth.register') 
+                   
+                @endif
+                </div>
               
               <div x-show="openTab === 3">Tab #3</div>
               <div x-show="openTab === 4">Tab #4</div>
