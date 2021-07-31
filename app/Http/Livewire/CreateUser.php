@@ -15,7 +15,15 @@ class CreateUser extends Component
 
     public function render()
     {
+<<<<<<< HEAD
         $users = DB::table('users')->paginate(5);
+=======
+        $users = User::paginate(5);
+        // echo '<pre>';
+        // var_dump($users);
+        // echo '</pre>';
+        // die();
+>>>>>>> 1ddcaf37a26c2d73c35e7eb780a8eb508c9ece5c
         return view('livewire.create-user')->with('users' , $users);
     }
 
@@ -28,6 +36,11 @@ class CreateUser extends Component
     }
 
     public function store(){
+
+        $this->validate([
+            'name' => 'required|min:5',
+            'email' => 'required|email:rfc,dns'
+        ]);
 
         $user = User::updateOrCreate(['user' => $this->name, 'email' => $this->email ],[
             'name' => $this->name,
