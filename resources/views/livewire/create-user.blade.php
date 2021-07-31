@@ -48,14 +48,14 @@
                                     </span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {{ $user->rol_id > 1 ? 'Administrador': 'Empleado' ; }}
+                                    {{ $user->rol->name }}
                                 </td>
                                 </tr>
                             @endforeach
                                 <!-- More people... -->
                             </tbody>
                         </table>
-                        {{ $users->links() }}
+                      <!--  {{ $users->links() }} -->
                     </div>
                 </div>
             </div>
