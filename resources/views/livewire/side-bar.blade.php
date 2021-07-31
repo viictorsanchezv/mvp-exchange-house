@@ -15,19 +15,19 @@
                     @if(  Auth::user()->rol_id  === 1)
                     <li @click="openTab = 2" :class="{ '-mb-px': openTab === 2 }" class="mr-3 flex-1">
                         <a href="#" :class="openTab === 2 ? 'text-white' : 'text-gray-600'" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-pink-500">
-                            <i class="fas fa-tasks pr-0 md:pr-3 text-blue-600"></i> Crear Usuario   
+                            <i class="fas fa-user pr-0 md:pr-3 text-blue-600"></i> Crear Usuario   
                         </a>
                     </li>
                     
                     <li @click="openTab = 3" ::class="{ '-mb-px': openTab === 3 }"  class="mr-3 flex-1">
                         <a :class="openTab === 3 ? 'text-white' : 'text-gray-600'" href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500">
-                            <i class="fa fa-envelope pr-0 md:pr-3 text-blue-600"></i> Estadisticas
+                            <i class="fas fa-chart-area pr-0 md:pr-3 text-blue-600"></i> Estadisticas
                         </a>
                     </li>
                     @endif
                     <li @click="openTab = 4" :class="{ '-mb-px': openTab === 4 }"  class="mr-3 flex-1">
                         <a :class="openTab === 4 ? 'text-white' : 'text-gray-600'" href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500">
-                            <i class="fas fa-chart-area pr-0 md:pr-3 text-blue-600"></i> Nueva Transacci&oacute;n
+                            <i class="fa fa-envelope pr-0 md:pr-3 text-blue-600"></i> Nueva Transacci&oacute;n
                         </a>
                     </li>
                     <li @click="openTab = 5" :class="{ '-mb-px': openTab === 5 }" class="mr-3 flex-1">
@@ -42,21 +42,17 @@
 
           <div class="md:w-9/12 sm pt-4">
               <div x-show="openTab === 1">
-                  
-              
                     <livewire:card-metrics>
-
-                    <livewire:graphic-metrics>
-
               </div>
            
              
               <div x-show="openTab === 2">
-                    <livewire:create-user> 
+                    <livewire:create-user>
 
               </div>
               
               <div x-show="openTab === 3">
+                    <livewire:graphic-metrics>
                     <livewire:stadistics> 
               </div>
               <div x-show="openTab === 4">

@@ -1,3 +1,4 @@
+@if(  Auth::user() && Auth::user()->rol_id  === 1 )
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -10,22 +11,27 @@
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-label for="name" value="{{ __('Nombre') }}" />
+                <x-jet-input id="name" class="block mt-1 w-full border-1" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-label for="email" value="{{ __('Correo') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
+                <x-jet-label for="rol" value="{{ __('Rol de usuario') }}" />
+                <x-jet-input id="rol" class="block mt-1 w-full" type="number" name="rol" :value="old('rol')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="password" value="{{ __('Contraseña') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-jet-label for="password_confirmation" value="{{ __('Confirmación de contraseña') }}" />
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
@@ -47,14 +53,15 @@
             @endif
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                <!-- <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
-                </a>
+                </a> -->
 
                 <x-jet-button class="ml-4">
-                    {{ __('Register') }}
+                    {{ __('Registrar') }}
                 </x-jet-button>
             </div>
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
+@endif
