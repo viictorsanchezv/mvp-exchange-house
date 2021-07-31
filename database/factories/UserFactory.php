@@ -6,9 +6,8 @@ use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use Laravel\Jetstream\Features;
 use Illuminate\Support\Facades\Hash;
-
+use Laravel\Jetstream\Features;
 
 class UserFactory extends Factory
 {
@@ -31,7 +30,11 @@ class UserFactory extends Factory
             'user' => $this->faker->unique()->userName(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
+<<<<<<< HEAD
             'password' => Hash::make('micontraseña'), // password
+=======
+            'password' => Hash::make('prueba'), // password
+>>>>>>> eliana_branch
             'remember_token' => Str::random(10),
             'rol_id' => rand(1,2),
         ];
