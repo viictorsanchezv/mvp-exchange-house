@@ -93,43 +93,57 @@
                     <form>
                         @csrf
                         <div class="mt-4">
-                            <x-jet-label for="client_emisor" value="{{ __('Cliente Emisor *') }}" />
-                            <x-jet-input id="client_emisor" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="text" name="client_emisor"  required autofocus autocomplete="" wire:model="" />
+                            <x-jet-label for="shipping_name" value="{{ __('Cliente Emisor *') }}" />
+                            <x-jet-input id="shipping_name" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="text" name="shipping_name"  required autofocus autocomplete="" wire:model="shipping_name" />
+                        </div>
+                        <div class="mt-4">
+                            <x-jet-label for="country_shipping" value="{{ __('Pais de Emisión *') }}" />
+                            <select id='country_shipping' name="country_shipping" wire:model="country_shipping" required class="border shadow p-2 bg-white w-full">
+                                <option value=''>Selecciona un pais</option>
+                                @foreach($countries as $country)
+                                    <option value='{{ $country->id }}'>{{ $country->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="mt-4">
-                            <x-jet-label for="country_send" value="{{ __('Pais de Emisión *') }}" />
-                            <x-jet-input id="country_send" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="text" name="country_send"  required autofocus autocomplete="" wire:model="" />
+                            <x-jet-label for="shipping_email" value="{{ __('Correo electrónico Emisor *') }}" />
+                            <x-jet-input id="shipping_email" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="email" name="shipping_email" required  wire:model="shipping_email"/>
                         </div>
 
                         <div class="mt-4">
-                            <x-jet-label for="email_client_send" value="{{ __('Correo electrónico Emisor *') }}" />
-                            <x-jet-input id="email_client_send" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="email" name="email_client_send" required  wire:model=""/>
+                            <x-jet-label for="reception_name" value="{{ __('Cliente Receptor *') }}" />
+                            <x-jet-input id="reception_name" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="text" name="reception_name"  required autofocus autocomplete="" wire:model="reception_name" />
                         </div>
 
                         <div class="mt-4">
-                            <x-jet-label for="client_receiver" value="{{ __('Cliente Receptor *') }}" />
-                            <x-jet-input id="client_receiver" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="text" name="client_receiver"  required autofocus autocomplete="" wire:model="" />
+                            <x-jet-label for="reception_country" value="{{ __('Pais de Recepción *') }}" />
+                            <select id='reception_country' name="reception_country" wire:model="reception_country" required class="border shadow p-2 bg-white w-full">
+                                <option value=''>Selecciona un pais</option>
+                                @foreach($countries as $country)
+                                    <option value={{ $country->id }}>{{ $country->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="mt-4">
-                            <x-jet-label for="country_receiver" value="{{ __('Pais de Recepción *') }}" />
-                            <x-jet-input id="country_receiver" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="text" name="country_receiver"  required autofocus autocomplete="" wire:model="" />
+                            <x-jet-label for="reception_email" value="{{ __('Correo electrónico Receptor *') }}" />
+                            <x-jet-input id="reception_email" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="email" name="reception_email" required  wire:model="reception_email"/>
                         </div>
 
                         <div class="mt-4">
-                            <x-jet-label for="money_sent" value="{{ __('Montro transacción *') }}" />
-                            <x-jet-input id="money_sent" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="number" name="money_sent"  required autofocus autocomplete="" wire:model="" />
+                            <x-jet-label for="money_sent" value="{{ __('Monto transacción *') }}" />
+                            <x-jet-input id="money_sent" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="number" name="money_sent"  required autofocus autocomplete="" wire:model="money_sent" />
                         </div>
 
                         <div class="mt-4">
-                            <x-jet-label for="shipping_rate" value="{{ __('Tasa transacción *') }}" />
-                            <x-jet-input id="shipping_rate" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="number" name="shipping_rate"  required autofocus autocomplete="" wire:model="" />
+                            <x-jet-label for="shipping_tax" value="{{ __('Tasa transacción *') }}" />
+                            <x-jet-input id="shipping_tax" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="number" name="shipping_tax"  required autofocus autocomplete="" wire:model="shipping_tax" />
                         </div>
 
                         <div class="mt-4">
-                            <x-jet-label for="date_end" value="{{ __('Fecha Estatus *') }}" />
-                            <x-jet-input id="date_end" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="date" name="date_end"  required autofocus autocomplete="" wire:model="" />
+                            <x-jet-label for="date_status" value="{{ __('Fecha Estatus *') }}" />
+                            <x-jet-input id="date_status" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="date" name="date_status"  required autofocus autocomplete="" wire:model="date_status" />
                         </div>
 
                         <div class="flex items-center justify-end mt-8">
