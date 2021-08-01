@@ -92,11 +92,49 @@
 
                     <form>
                         @csrf
-                        <div class="flex items-center justify-end mt-4">
-                         
+                        <div class="mt-4">
+                            <x-jet-label for="client_emisor" value="{{ __('Cliente Emisor *') }}" />
+                            <x-jet-input id="client_emisor" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="text" name="client_emisor"  required autofocus autocomplete="" wire:model="" />
+                        </div>
 
+                        <div class="mt-4">
+                            <x-jet-label for="country_send" value="{{ __('Pais de Emisión *') }}" />
+                            <x-jet-input id="country_send" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="text" name="country_send"  required autofocus autocomplete="" wire:model="" />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-jet-label for="email_client_send" value="{{ __('Correo electrónico Emisor *') }}" />
+                            <x-jet-input id="email_client_send" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="email" name="email_client_send" required  wire:model=""/>
+                        </div>
+
+                        <div class="mt-4">
+                            <x-jet-label for="client_receiver" value="{{ __('Cliente Receptor *') }}" />
+                            <x-jet-input id="client_receiver" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="text" name="client_receiver"  required autofocus autocomplete="" wire:model="" />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-jet-label for="country_receiver" value="{{ __('Pais de Recepción *') }}" />
+                            <x-jet-input id="country_receiver" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="text" name="country_receiver"  required autofocus autocomplete="" wire:model="" />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-jet-label for="money_sent" value="{{ __('Montro transacción *') }}" />
+                            <x-jet-input id="money_sent" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="number" name="money_sent"  required autofocus autocomplete="" wire:model="" />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-jet-label for="shipping_rate" value="{{ __('Tasa transacción *') }}" />
+                            <x-jet-input id="shipping_rate" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="number" name="shipping_rate"  required autofocus autocomplete="" wire:model="" />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-jet-label for="date_end" value="{{ __('Fecha Estatus *') }}" />
+                            <x-jet-input id="date_end" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="date" name="date_end"  required autofocus autocomplete="" wire:model="" />
+                        </div>
+
+                        <div class="flex items-center justify-end mt-8">
                             <button wire:click.prevent="store()" type="button"
-                                class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-bold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-blueP-light text-base leading-6 font-bold text-blueP-DEFAULT shadow-sm hover:bg-blueP-DEFAULT focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                                 Agregar
                             </button>
                         </div>
@@ -104,7 +142,7 @@
 
 				<!--Footer-->
 				<div class="flex justify-end pt-2">
-					<button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400" @click="showModal = false">Cerrar</button>
+					<button class="modal-close px-4 bg-blueP-dark p-2 rounded-lg text-white " @click="showModal = false">Cerrar</button>
 				</div>
 
 
