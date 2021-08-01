@@ -27,7 +27,7 @@ class TransactionFactory extends Factory
             'fecha_fin' => $this->faker->dateTimeBetween('now', '+1 months'),
 
             'user_id' => rand(1,10),
-            'status_id' => rand(1,3),
+            'statu_id' => rand(1,3),
             'client_sender_id' => rand(1,30),
             'client_receiver_id' => rand(1,30),
         ];
