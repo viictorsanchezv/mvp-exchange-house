@@ -1,7 +1,7 @@
 <div class="flex flex-wrap">
 @foreach($metrics as $key=>$metric)
     <!--Metric Card-->
-    <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+    <div class="w-full md:w-1/2 xl:w-1/2 p-6">
         <div class="bg-gradient-to-b from-blueP-light to-white border-b-4 border-blueP-dark rounded-lg shadow-xl p-5">
             <div class="flex flex-row items-center">
                 <div class="flex-shrink pr-4">

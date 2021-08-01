@@ -37,25 +37,16 @@
                             @foreach($transactions as $key=>$transaction)
                                 <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900">
-                                    
-                                            </div>
-                                            <div class="text-sm text-gray-500">
-                                        
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {{ $transaction->user->name; }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $transaction->name; }}
+                                    {{ $transaction->client->name; }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    
+                                    {{ $transaction->client_receive->name; }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $transaction->monto_envio; }}
+                                    {{ $transaction->money_sent; }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
@@ -63,7 +54,7 @@
                                     </span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {{ $transaction->fecha_fin; }}
+                                    {{ $transaction->date_end; }}
                                 </td>
                                 </tr>
                             @endforeach
@@ -101,7 +92,6 @@
 
                     <form>
                         @csrf
-
                         <div class="flex items-center justify-end mt-4">
                          
 

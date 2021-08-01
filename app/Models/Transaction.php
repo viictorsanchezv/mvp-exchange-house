@@ -19,16 +19,31 @@ class Transaction extends Model
     protected $fillable = [
         'user_id',
         'statu_id',
-        'client_sender_id',
+        'client_id',
         'client_receiver_id',
-        'monto_envio',
-        'tasa_envio',
-        'fecha_fin',
+        'money_sent',
+        'shipping_rate',
+        'date_end',
     ];
 
     public function statu()
     {
         return $this->belongsTo(Statu::class);
+    }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
+
+    public function client_receive()
+    {
+        return $this->belongsTo(Client::class, 'client_receiver_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }

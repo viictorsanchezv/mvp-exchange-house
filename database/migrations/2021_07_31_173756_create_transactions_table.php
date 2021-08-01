@@ -16,19 +16,19 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('statu_id');
-            $table->unsignedBigInteger('client_sender_id');
+            $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('client_receiver_id');
             
             $table->id();
             $table->timestamps();
 
-            $table->double('monto_envio');
-            $table->double('tasa_envio');
-            $table->date('fecha_fin');
+            $table->double('money_sent');
+            $table->double('shipping_rate');
+            $table->date('date_end');
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('statu_id')->references('id')->on('status');
-            $table->foreign('client_sender_id')->references('id')->on('clients');
+            $table->foreign('client_id')->references('id')->on('clients');
             $table->foreign('client_receiver_id')->references('id')->on('clients');
 
         });

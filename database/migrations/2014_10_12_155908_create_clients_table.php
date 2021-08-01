@@ -14,7 +14,7 @@ class CreateClientsTable extends Migration
     public function up()
     {
         Schema::create('clients', function (Blueprint $table) {
-            $table->unsignedBigInteger('pais_id');
+            $table->unsignedBigInteger('country_id');
 
             $table->id();
 
@@ -24,7 +24,7 @@ class CreateClientsTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('pais_id')->references('id')->on('countries'); //validacion de relacion
+            $table->foreign('country_id')->references('id')->on('countries'); //validacion de relacion
 
         });
     }

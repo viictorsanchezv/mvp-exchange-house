@@ -25,7 +25,7 @@ class ClientFactory extends Factory
             'name' => $this->faker->name(),
             'email' => $this->faker->safeEmail(),
             'phone' => $this->faker->phoneNumber(),
-            'pais_id' => rand(1,12),
+            'country_id' => rand(1,12),
         ];
     }
 }
