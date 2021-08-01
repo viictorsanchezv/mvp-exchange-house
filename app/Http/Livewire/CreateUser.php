@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use App\Models\Rol;
 
 class CreateUser extends Component
 {   
@@ -15,8 +16,9 @@ class CreateUser extends Component
 
     public function render()
     {
-        $users = User::paginate(5);
-        return view('livewire.create-user')->with('users' , $users);
+        $users = User::orderByDesc('id')->take(10)->get();
+        $rols  = Rol::all();
+        return view('livewire.create-user')->with('users' , $users)->with('rols', $rols);
     }
 
     private function resetCreateForm(){
@@ -31,7 +33,8 @@ class CreateUser extends Component
 
         $this->validate([
             'name' => 'required|min:5',
-            'email' => 'required|email:rfc,dns'
+            'email' => 'required|unique:users|email:rfc,dns',
+
         ]);
 
         $user = User::updateOrCreate(['user' => $this->name, 'email' => $this->email ],[
