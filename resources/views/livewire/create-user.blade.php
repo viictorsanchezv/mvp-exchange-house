@@ -99,7 +99,12 @@
 
                         <div class="mt-4">
                             <x-jet-label for="rol" value="{{ __('Rol de usuario *') }}" />
-                            <x-jet-input id="rol" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="number" name="rol" required wire:model="rol"/>
+                            <select id='rol' name="rol" wire:model="rol" required class="border shadow p-2 bg-white w-full">
+                                <option value=''>Selecciona un rol</option>
+                                @foreach($rols as $rol)
+                                    <option value={{ $rol->id }}>{{ $rol->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="mt-4">

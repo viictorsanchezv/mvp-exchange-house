@@ -17,7 +17,8 @@ class CreateUser extends Component
     public function render()
     {
         $users = User::orderByDesc('id')->take(10)->get();
-        return view('livewire.create-user')->with('users' , $users);
+        $rols  = Rol::all();
+        return view('livewire.create-user')->with('users' , $users)->with('rols', $rols);
     }
 
     private function resetCreateForm(){
