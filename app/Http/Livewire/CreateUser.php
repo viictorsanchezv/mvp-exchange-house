@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use App\Models\Rol;
 
 class CreateUser extends Component
 {   
@@ -15,7 +16,7 @@ class CreateUser extends Component
 
     public function render()
     {
-        $users = User::paginate(5);
+        $users = User::orderByDesc('id')->take(10)->get();
         return view('livewire.create-user')->with('users' , $users);
     }
 
@@ -31,7 +32,8 @@ class CreateUser extends Component
 
         $this->validate([
             'name' => 'required|min:5',
-            'email' => 'required|email:rfc,dns'
+            'email' => 'required|unique:users|email:rfc,dns',
+
         ]);
 
         $user = User::updateOrCreate(['user' => $this->name, 'email' => $this->email ],[
