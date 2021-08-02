@@ -12,7 +12,7 @@
                         </a>
                     </li>
 
-                    @if(  Auth::user()->rol_id  === 1)
+                    @if(  Auth::user()->rol_id  == 1)
                     <li @click="openTab = 2" :class="{ '-mb-px': openTab === 2 }" class="mr-3 flex-1">
                         <a href="#" :class="openTab === 2 ? 'text-white' : 'text-gray-600'" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-pink-500">
                             <i class="fas fa-user pr-0 md:pr-3 text-blue-600"></i> Usuarios   
