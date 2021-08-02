@@ -14,12 +14,8 @@ class HttpsProtocol
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-            if (!$request->secure() && App::environment() === 'production') {
-                return redirect()->secure($request->getRequestUri());
-            }
-
-            return $next($request); 
+        return $next($request);
     }
 }
