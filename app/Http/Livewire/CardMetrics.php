@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Livewire;
-
+use Auth;
 use Livewire\Component;
+use App\Models\Transaction;
 
 class CardMetrics extends Component
 {
@@ -13,6 +14,12 @@ class CardMetrics extends Component
  
     public function render()
     {
-        return view('livewire.card-metrics');
+        if(Auth::user()->id > 1){
+            $transactions = Transaction::where('user_id' , Auth::user()->id)->orderByDesc('id')->paginate(10);
+        }else{
+            $transactions = Transaction::orderByDesc('id')->paginate(10);
+        }
+        
+        return view('livewire.card-metrics')->with('transactions',$transactions);
     }
 }
