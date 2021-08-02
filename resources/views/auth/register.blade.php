@@ -1,4 +1,4 @@
-@if(  Auth::user() && Auth::user()->rol_id  === 1 )
+
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -64,4 +64,3 @@
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
-@endif
