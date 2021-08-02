@@ -4,9 +4,15 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
+                <!-- <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
+                    </a>
+                </div> -->
+
+                <div class="w-full sm:max-w-md overflow-hidden sm:rounded-lg flex items-center">
+                    <a href="{{ route('dashboard') }}">
+                        <img src="{{ asset('images/tailwind-css-logo.svg') }}" class="h-12 mx-auto">
                     </a>
                 </div>
 
