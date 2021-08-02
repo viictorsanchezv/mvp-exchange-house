@@ -40,6 +40,7 @@ class NewTransaction extends Component
         $user_id = Auth::user()->id;
         $this->validate([
             'shipping_name'     => 'required|min:5',
+            'country_shipping'  => 'required',
             'shipping_email'    => 'required|email:rfc,dns',
             'reception_name'    => 'required|min:5',
             'reception_email'   => 'required|email:rfc,dns',

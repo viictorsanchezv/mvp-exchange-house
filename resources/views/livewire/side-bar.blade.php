@@ -56,7 +56,7 @@
                     <livewire:stadistics> 
               </div>
               <div x-show="openTab === 4">
-                    <livewire:new-transaction>          
+                    <livewire:new-transaction >          
         
               </div>
               <div x-show="openTab === 5">
