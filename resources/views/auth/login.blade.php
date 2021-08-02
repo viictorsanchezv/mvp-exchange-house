@@ -19,7 +19,7 @@
                 @csrf
 
                 <div>
-                    <x-jet-input id="email" class="block mt-8 w-full px-2 font-normal text-sm h-8" type="email" name="email" placeholder="Correo electrónico" :value="old('email')" required autofocus />
+                    <x-jet-input id="email" class="block mt-8 w-full px-2 font-normal text-sm h-8" type="email" name="email" placeholder="Correo electrónico" :value="old('email')" required autofocus autocomplete="current-email" />
                 </div>
 
                 <div class="mt-4">
