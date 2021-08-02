@@ -1,5 +1,5 @@
 
-<div class="mx-auto w-full bg-gray-100 h-screen" x-data="{ 'showModal': false }" @keydown.escape="showModal = false" x-cloak>
+<div class="mx-auto w-full bg-gray-100 h-auto" x-data="{ 'showModal': false }" @keydown.escape="showModal = false" x-cloak>
     <div class='flex w-full justify-end'>
         <button type="button" class="bg-transparent border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-full" @click="showModal = true">Nueva transacción</button>
     </div>  
@@ -70,9 +70,9 @@
 
 	<section class="flex flex-wrap p-4 h-12 items-center">
 		<!--Overlay-->
-		<div class="overflow-auto" style="background-color: rgba(0,0,0,0.5)" x-show="showModal" :class="{ 'absolute inset-0 z-10 flex items-center justify-center': showModal }">
+		<div class="overflow-auto  " style="background-color: rgba(0,0,0,0.5)" x-show="showModal" :class="{ 'fixed inset-0 z-10 flex items-center justify-center ': showModal }">
 			<!--Dialog-->
-			<div class="bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg py-4 text-left px-6" x-show="showModal" @click.away="showModal = false" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
+			<div class="bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg py-4 text-left px-6 m-auto justify-end" x-show="showModal" @click.away="showModal = false" x-transition:enter="ease-out duration-0" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-0" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
                   
                     <x-slot name="logo">
                         <x-jet-authentication-card-logo />
@@ -89,7 +89,7 @@
                         </div>
                         @endif
 
-
+                        <x-jet-validation-errors class="mb-4" />
                     <form>
                         @csrf
                         <div class="mt-4">

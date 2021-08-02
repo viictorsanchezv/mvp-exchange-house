@@ -34,6 +34,9 @@ class CreateUser extends Component
         $this->validate([
             'name' => 'required|min:5',
             'email' => 'required|unique:users|email:rfc,dns',
+            'password' => 'required|min:5|confirmed',
+            'password_confirmation' => 'required|min:5',
+            'rol' => 'required'
 
         ]);
 
