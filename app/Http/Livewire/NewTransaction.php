@@ -18,7 +18,11 @@ class NewTransaction extends Component
     public function render()
     {
         $countries = Country::all();
-        $transactions = Transaction::orderByDesc('id')->take(10)->get();
+        if(Auth::user()->id > 1){
+            $transactions = Transaction::where('user_id' , Auth::user()->id)->orderByDesc('id')->paginate(10);
+        }else{
+            $transactions = Transaction::orderByDesc('id')->paginate(10);
+        }
 
         return view('livewire.new-transaction')->with('transactions', $transactions)->with('countries', $countries);
     }
