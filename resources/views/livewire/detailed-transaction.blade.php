@@ -44,7 +44,7 @@
                             <div class="grid md:grid-cols-2 text-sm">
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">Cliente Envía</div>
-                                    <div class="px-4 py-2">Nombre aqui</div>
+                                    <div class="px-4 py-2">{{ $transaction->id }}</div>
                                 </div>
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">Cliente Recibe</div>

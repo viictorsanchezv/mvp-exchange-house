@@ -14,10 +14,10 @@ class CardMetrics extends Component
  
     public function render()
     {
-        if(Auth::user()->id > 1){
-            $transactions = Transaction::where('user_id' , Auth::user()->id)->orderByDesc('id')->paginate(10);
+        if(Auth::user()->rol_id > 1){
+            $transactions = Transaction::where('user_id' , Auth::user()->id)->orderByDesc('id')->paginate(6);
         }else{
-            $transactions = Transaction::orderByDesc('id')->paginate(10);
+            $transactions = Transaction::orderByDesc('id')->paginate(6);
         }
         
         return view('livewire.card-metrics')->with('transactions',$transactions);

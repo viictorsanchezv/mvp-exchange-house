@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\Transaction;
+use App\Http\Livewire\DetailedTransaction;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,4 +21,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 
-Route::get('/transaction', [Transaction::class, 'render']);
+Route::get('/transaction/{id}', [DetailedTransaction::class, 'render']);

@@ -60,7 +60,7 @@
                                     {{ $transaction->date_end; }}
                                 </td>
                                 <td>
-                                    <a href="/transaction">Ver</a>
+                                    <a href='{{ "/transaction/$transaction->id" }}'>Ver</a>
                                 </td>
                                 </tr>
                             @endforeach
