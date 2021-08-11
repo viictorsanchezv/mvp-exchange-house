@@ -27,6 +27,9 @@
                 <thead class="bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            ID
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Dinero enviado
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -39,6 +42,9 @@
                 
                 @foreach($transactions as $key=>$transaction)
                     <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            {{ $transaction->id; }}
+                        </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             {{ $transaction->money_sent; }} $
                         </td>

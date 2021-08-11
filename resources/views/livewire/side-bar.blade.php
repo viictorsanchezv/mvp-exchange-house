@@ -27,7 +27,7 @@
                     @endif
                     <li @click="openTab = 4" :class="{ '-mb-px': openTab === 4 }"  class="mr-3 flex-1">
                         <a :class="openTab === 4 ? 'text-white' : 'text-gray-600'" href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500">
-                            <i class="fa fa-envelope pr-0 md:pr-3 text-blue-600"></i> Nueva Transacci&oacute;n
+                            <i class="fa fa-envelope pr-0 md:pr-3 text-blue-600"></i> Transacciones
                         </a>
                     </li>
                     <li @click="openTab = 5" :class="{ '-mb-px': openTab === 5 }" class="mr-3 flex-1">
