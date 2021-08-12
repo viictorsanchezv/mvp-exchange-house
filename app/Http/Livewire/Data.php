@@ -16,10 +16,12 @@ class Data extends Component
     public function render($id)
     {
         $transaction = Transaction::where('id' , $id)->first();
-        return view('livewire.data')->with('transaction', $transaction)->with('statu', $this->statu);
+        $status = Statu::all();
+        return view('livewire.data')->with('transaction', $transaction)->with('statu', $this->statu)->with('status', $status);
     }
 
     public function store(){
+        $status = Statu::all();
         if($_GET['date_end'] != '' && $_GET['status'] != '' ){
             $transaction = Transaction::updateOrCreate(['id' => $_GET['id']],[
                 'statu_id' => $_GET['status'],
@@ -36,11 +38,13 @@ class Data extends Component
                         'statu_id' => $_GET['status'],
                     
                     ]);
+                }else{
+                    $transaction = Transaction::where('id' ,$_GET['id'])->first();
                 }
             }
         }
     
         // $transaction = Transaction::where('id' , $id_transaction)->first();
-        return view('livewire.data')->with('transaction', $transaction);
+        return view('livewire.data')->with('transaction', $transaction)->with('status', $status);
     }
 }

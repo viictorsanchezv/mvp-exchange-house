@@ -3,7 +3,7 @@
                   activeClasses: 'border-l border-t border-r rounded-t text-blue-700',
                   inactiveClasses: 'text-blue-500 hover:text-blue-800'
                 }" class='flex'>   
-          <div class="bg-gray-800 shadow-xl h-16 fixed bottom-0 md:relative md:h-screen z-10 w-full md:w-3/12">
+          <div class="bg-gray-800 shadow-xl fixed bottom-0 md:relative z-10 w-full md:w-3/12">
             <div class="md:w-5/6 md:top-0 content-center md:content-start text-left justify-between">
                 <ul class="list-reset flex flex-row md:flex-col py-0 md:py-3 px-1 md:px-2 text-center md:text-left">
                     <li @click="openTab = 1" :class="{ '-mb-px': openTab === 1 }"class="mr-3 flex-1">

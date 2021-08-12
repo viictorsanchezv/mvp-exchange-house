@@ -102,7 +102,7 @@
                             <select id='rol' name="rol" wire:model="rol" required class="border shadow p-2 bg-white w-full">
                                 <option value=''>Selecciona un rol</option>
                                 @foreach($rols as $rol)
-                                    <option value={{ $rol->id }}>{{ $rol->name }}</option>
+                                    <option value='{{ $rol->id }}'>{{ $rol->name }}</option>
                                 @endforeach
                             </select>
                         </div>

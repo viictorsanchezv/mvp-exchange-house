@@ -72,7 +72,12 @@
                                         <div class="grid grid-cols-2">
                                             <div class="px-4 py-2 font-semibold">Estatus</div>
                                             <div class="px-4 py-2">
-                                                <x-jet-input id="status" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="text" name="status" wire:model="status" />    
+                                                <select id="status"  name="status" wire:model="status" class="border shadow p-2 bg-white w-full">
+                                                    <option value=''>Selecciona un estatus</option>
+                                                @foreach($status as $statu)
+                                                    <option value='{{ $statu->id }}'>{{ $statu->name }}</option>
+                                                @endforeach
+                                                </select>   
                                             </div>
                                         </div>
                                 </div>
