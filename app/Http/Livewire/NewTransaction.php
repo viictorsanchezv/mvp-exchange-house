@@ -7,7 +7,10 @@ use App\Models\Transaction;
 use App\Models\Statu;
 use App\Models\Client;
 use App\Models\User;
+use App\Models\Rol;
 use App\Models\Country;
+use App\Mail\StatusTransaction;
+use Illuminate\Support\Facades\Mail;
 
 class NewTransaction extends Component
 {
@@ -83,5 +86,27 @@ class NewTransaction extends Component
 
         session()->flash('message', $new_transaction ? 'Transacción creada.' : 'Transacción no creada.');
         $this->resetCreateForm();
+
+        if($new_transaction){
+            $infoTransaction = [
+                ['name' => 'Cliente Envia' ,            'value' => $client_shipping['name'] ],
+                ['name' => 'Correo electronico',        'value' => $client_shipping['email'] ],
+                ['name' => 'Pais',                      'value' => $client_shipping->country->name ],
+                ['name' => 'Cliente Recibe' ,           'value' => $client_reception['name'] ],
+                ['name' => 'Correo electronico',        'value' => $client_reception['email'] ],
+                ['name' => 'Pais',                      'value' => $client_reception->country->name ],
+                ['name' => 'Monto Enviado',             'value' => $new_transaction['money_sent'] ],
+                ['name' => 'Estatus de la transaccion', 'value' => $new_transaction->statu->name],
+            ];
+            $receivers = $client_shipping['email'];
+
+            //var_dump($infoTransaction);
+
+            Mail::to($receivers)->send(new StatusTransaction($infoTransaction));
+        }
+            
+      
+       
+        
     }
 }
