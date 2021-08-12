@@ -38,10 +38,8 @@ class Data extends Component
                     ]);
                 }
             }
-
         }
-        
-
+    
         // $transaction = Transaction::where('id' , $id_transaction)->first();
         return view('livewire.data')->with('transaction', $transaction);
     }
