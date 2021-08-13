@@ -7,7 +7,7 @@ use App\Models\Transaction;
 
 class GraphicMetrics extends Component
 {
-    public $profit_percentage=10;
+    public $profit_percentage=7;
     public $days=array(),$profit=array();
 
     public $countries=array(), $count_transaction=array();
