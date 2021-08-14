@@ -22,9 +22,6 @@ class GraphicMetrics extends Component
             array_push($this->profit, round($transaction*($this->profit_percentage/100),0) );
             
         }
-
-
-        
         
         return view('livewire.graphic-metrics')->with('profit_percentage', $this->profit_percentage)->with('days', $this->days)->with('profit', $this->profit);
     }

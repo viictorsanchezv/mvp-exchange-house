@@ -5,7 +5,7 @@
     </div>  
     <div class='w-full mx-auto px-3'>  
         <div class="flex flex-col">
-            <div class=" sm:-mx-6 lg:-mx-0">
+            <div class=" sm:-mx-6 lg:-mx-0 overflow-x-auto">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-2">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
