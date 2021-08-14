@@ -126,9 +126,7 @@
                             <x-jet-label for="reception_country" value="{{ __('Pais de Recepción *') }}" />
                             <select id='reception_country' name="reception_country" wire:model="reception_country" required class="border shadow p-2 bg-white w-full">
                                 <option value=''>Selecciona un pais</option>
-                                @foreach($countries as $country)
-                                    <option value={{ $country->id }}>{{ $country->name }}</option>
-                                @endforeach
+                                <option value='3'>Venezuela</option>
                             </select>
                         </div>
 
