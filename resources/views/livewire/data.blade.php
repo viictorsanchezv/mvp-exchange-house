@@ -59,16 +59,31 @@
                                         <div class="px-4 py-2">{{ $transaction->client_receive->name; }}</div>
                                     </div>
                                     <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold">Monto</div>
+                                        <div class="px-4 py-2 font-semibold">Monto Enviado</div>
                                         <div class="px-4 py-2"> {{ $transaction->money_sent; }} $ USD </div>
                                     </div>
+
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 font-semibold"> Tasa del cambio de moneda (Dolar USD a Peso COP)</div>
+                                        <div class="px-4 py-2"> {{ $transaction->shipping_rate; }} COP </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 font-semibold"> Monto a recibir en Venezuela</div>
+                                        <div class="px-4 py-2"> {{ ($transaction->shipping_rate*$transaction->money_sent)-($transaction->shipping_rate*$transaction->money_sent)*$profit_percentage; }} COP </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 font-semibold"> Tasa de transferencia</div>
+                                        <div class="px-4 py-2"> {{ ($transaction->shipping_rate*$transaction->money_sent)*$profit_percentage; }} COP </div>
+                                    </div>
                                     
-                                        <div class="grid grid-cols-2">
-                                            <div class="px-4 py-2 font-semibold">Fecha a entregar el dinero</div>
-                                            <div class="px-4 py-2"> 
-                                                <x-jet-input id="date_end" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="date" name="date_end" wire:model="date_end" />       
-                                            </div>
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 font-semibold">Fecha a entregar el dinero</div>
+                                        <div class="px-4 py-2"> 
+                                            <x-jet-input id="date_end" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="date" name="date_end" wire:model="date_end" />       
                                         </div>
+                                    </div>
                                         <div class="grid grid-cols-2">
                                             <div class="px-4 py-2 font-semibold">Estatus</div>
                                             <div class="px-4 py-2">
