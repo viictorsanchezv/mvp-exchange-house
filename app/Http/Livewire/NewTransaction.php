@@ -96,16 +96,10 @@ class NewTransaction extends Component
                 $client_reception['email'] ,
                 $client_reception->country->name ,
                 $new_transaction['money_sent'] ,
-                $new_transaction->statu->name
-              /**  ['name' => 'Cliente Envia' ,            'value' => $client_shipping['name'] ],
-               ** ['name' => 'Correo electronico',        'value' => $client_shipping['email'] ],
-               ** ['name' => 'Pais',                      'value' => $client_shipping->country->name ],
-               ** ['name' => 'Cliente Recibe' ,           'value' => $client_reception['name'] ],
-               ** ['name' => 'Correo electronico',        'value' => $client_reception['email'] ],
-               ** ['name' => 'Pais',                      'value' => $client_reception->country->name ],
-               ** ['name' => 'Monto Enviado',             'value' => $new_transaction['money_sent'] ],
-               ** ['name' => 'Estatus de la transaccion', 'value' => $new_transaction->statu->name],
-                **/
+                $new_transaction->statu->name,
+                $new_transaction['shipping_rate'] ,
+                $new_transaction['date_end'] 
+             
             ];
             $receivers = $client_shipping['email'];
 

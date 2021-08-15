@@ -86,7 +86,7 @@
                                                                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;  margin-bottom: 10px;">
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td style="text-aling:left; box-sizing:border-box; color:#3d4852;font-size:15px;  "> 1.00 USD = 3800 COP  </td>
+                                                                            <td style="text-aling:left; box-sizing:border-box; color:#3d4852;font-size:15px;  "> 1.00 USD = {{ $infoTransaction[8] }} COP  </td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -166,7 +166,7 @@
                                                                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;   margin-bottom: 10px;">
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td style="text-aling:left; box-sizing:border-box; color:#3d4852;font-size:15px;  "> <strong> Fecha:</strong>  </td>
+                                                                            <td style="text-aling:left; box-sizing:border-box; color:#3d4852;font-size:15px;  "> <strong> Fecha:</strong> {{ $infoTransaction[9] }} </td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -174,9 +174,6 @@
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                
-                                                
-                                                
                                             </td>
                                         </tr>
                                     </tbody>
@@ -185,15 +182,8 @@
                         </tr>
                     </tbody>
                 </table>
-                <h3 style="border-bottom: 1px solid #e8e5ef; box-sizing:border-box;color:#3d4852;font-size:16px;font-weight:bold;margin-top:0;text-align:center">Gracias por confiar en nosotros!!</h3>
-                        
-              
-               
+                <h3 style=" box-sizing:border-box;color:#3d4852;font-size:16px;font-weight:bold;margin-top:0;text-align:center">Gracias por confiar en nosotros!!</h3>
             </div>
         </div>
-
-
-       
-    
 </body>
 </html>
