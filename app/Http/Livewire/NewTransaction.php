@@ -106,10 +106,10 @@ class NewTransaction extends Component
             //var_dump($infoTransaction);
 
             Mail::to($receivers)->send(new StatusTransaction($infoTransaction));
-        }
-            
-      
-       
+        }    
         
     }
+
+   
+  
 }
