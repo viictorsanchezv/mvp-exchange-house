@@ -59,8 +59,13 @@
                                         <div class="px-4 py-2">{{ $transaction->client_receive->name; }}</div>
                                     </div>
                                     <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold">Monto Enviado</div>
+                                        <div class="px-4 py-2 font-semibold">Importe Transferencia</div>
                                         <div class="px-4 py-2"> {{ $transaction->money_sent; }} $ USD </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 font-semibold">Tarifa de la transferencia</div>
+                                        <div class="px-4 py-2"> {{ $transaction->money_sent*$profit_percentage; }} $ USD </div>
                                     </div>
 
                                     <div class="grid grid-cols-2">
@@ -70,13 +75,15 @@
 
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold"> Monto a recibir en Venezuela</div>
-                                        <div class="px-4 py-2"> {{ ($transaction->shipping_rate*$transaction->money_sent)-($transaction->shipping_rate*$transaction->money_sent)*$profit_percentage; }} COP </div>
+                                        <div class="px-4 py-2"> {{ ($transaction->shipping_rate*$transaction->money_sent) }} COP </div>
                                     </div>
 
+
                                     <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold"> Tasa de transferencia</div>
-                                        <div class="px-4 py-2"> {{ ($transaction->shipping_rate*$transaction->money_sent)*$profit_percentage; }} COP </div>
+                                        <div class="px-4 py-2 font-semibold"> Total de la transferencia</div>
+                                        <div class="px-4 py-2"> {{ ($transaction->money_sent)+($transaction->money_sent*$profit_percentage) }} USD </div>
                                     </div>
+
                                     
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Fecha a entregar el dinero</div>
