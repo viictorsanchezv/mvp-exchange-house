@@ -8,6 +8,9 @@ use App\Models\Transaction;
 use App\Models\Client;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\StatusTransaction;
+use Illuminate\Support\Facades\Mail;
+
 
 class Data extends Component
 {
@@ -44,6 +47,26 @@ class Data extends Component
             }
         }
     
+        if($_GET['date_end'] != '' || $_GET['status'] != '' ){
+            $infoTransaction = [
+                $transaction->client->name ,
+                $transaction->client->email ,
+                $transaction->client->country->name ,
+                $transaction->client_receive->name ,
+                $transaction->client_receive->email ,
+                $transaction->client_receive->country->name ,
+                $transaction->money_sent,
+                $transaction->statu->name,
+                $transaction->shipping_rate,
+                $transaction['date_end'] 
+             
+            ];
+            
+            $receivers = $transaction->client->email;
+            
+
+            Mail::to($receivers)->send(new StatusTransaction($infoTransaction));
+        }    
         // $transaction = Transaction::where('id' , $id_transaction)->first();
         return view('livewire.data')->with('transaction', $transaction)->with('status', $status)->with('profit_percentage',$this->profit_percentage);
     }

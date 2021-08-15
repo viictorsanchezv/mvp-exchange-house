@@ -11,6 +11,7 @@
             <div class="w-full sm:max-w-md overflow-hidden sm:rounded-lg">
                 <img src="{{ asset('images/tailwind-css-logo.svg') }}" class="h-20 mx-auto">
             </div>
+          
             <div>
                 
                 <table class="m_-7961018783826041780inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;background-color:#ffffff;border-color:#e8e5ef;border-radius:2px;border-width:1px;margin:0 auto;padding:0;width:570px; border: 1px solid #dddddd;">
@@ -30,7 +31,7 @@
                                                                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box; margin-top:40; margin-bottom: 10px;">
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td style="text-aling:left; box-sizing:border-box; color:#3d4852;font-size:15px;"> <strong> Envia:</strong> {{ $infoTransaction[0] }}  </td>
+                                                                            <td style="text-aling:left; text-transform: capitalize; box-sizing:border-box; color:#3d4852;font-size:15px;"> <strong> Envia:</strong> {{ $infoTransaction[0] }}  </td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -50,7 +51,7 @@
                                                                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing:border-box;   margin-bottom: 10px;">
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td style="text-aling:left; box-sizing:border-box; color:#3d4852;font-size:15px;"> <strong> Recibe:</strong> {{ $infoTransaction[3] }}  </td>
+                                                                            <td style="text-aling:left; box-sizing:border-box; text-transform: capitalize; color:#3d4852;font-size:15px;"> <strong> Recibe:</strong> {{ $infoTransaction[3] }}  </td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
