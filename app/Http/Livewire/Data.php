@@ -12,12 +12,12 @@ use Illuminate\Support\Facades\Validator;
 class Data extends Component
 {
     public $statu=0,$date_end;
-
+    public $profit_percentage=0.07;
     public function render($id)
     {
         $transaction = Transaction::where('id' , $id)->first();
         $status = Statu::all();
-        return view('livewire.data')->with('transaction', $transaction)->with('statu', $this->statu)->with('status', $status);
+        return view('livewire.data')->with('transaction', $transaction)->with('statu', $this->statu)->with('status', $status)->with('profit_percentage',$this->profit_percentage);;
     }
 
     public function store(){
@@ -45,6 +45,6 @@ class Data extends Component
         }
     
         // $transaction = Transaction::where('id' , $id_transaction)->first();
-        return view('livewire.data')->with('transaction', $transaction)->with('status', $status);
+        return view('livewire.data')->with('transaction', $transaction)->with('status', $status)->with('profit_percentage',$this->profit_percentage);
     }
 }

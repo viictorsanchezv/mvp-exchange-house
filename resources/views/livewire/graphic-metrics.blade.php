@@ -4,7 +4,7 @@
         <!--Graph Card-->
         <div class="bg-white border-transparent rounded-lg shadow-xl">
             <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
-                <h5 class="font-bold uppercase text-gray-600">Ganancias de la empresa de los ultimos 30 dias</h5>
+                <h5 class="font-bold uppercase text-gray-600">Ganancias de la empresa de los ultimos 30 dias en USD</h5>
             </div>
             <div class="p-5">
                 <canvas id="chartjs-7" class="chartjs" width="undefined" height="undefined"></canvas>
