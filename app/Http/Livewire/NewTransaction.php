@@ -89,14 +89,23 @@ class NewTransaction extends Component
 
         if($new_transaction){
             $infoTransaction = [
-                ['name' => 'Cliente Envia' ,            'value' => $client_shipping['name'] ],
-                ['name' => 'Correo electronico',        'value' => $client_shipping['email'] ],
-                ['name' => 'Pais',                      'value' => $client_shipping->country->name ],
-                ['name' => 'Cliente Recibe' ,           'value' => $client_reception['name'] ],
-                ['name' => 'Correo electronico',        'value' => $client_reception['email'] ],
-                ['name' => 'Pais',                      'value' => $client_reception->country->name ],
-                ['name' => 'Monto Enviado',             'value' => $new_transaction['money_sent'] ],
-                ['name' => 'Estatus de la transaccion', 'value' => $new_transaction->statu->name],
+                $client_shipping['name'] ,
+                $client_shipping['email'] ,
+                $client_shipping->country->name ,
+                $client_reception['name'] ,
+                $client_reception['email'] ,
+                $client_reception->country->name ,
+                $new_transaction['money_sent'] ,
+                $new_transaction->statu->name
+              /**  ['name' => 'Cliente Envia' ,            'value' => $client_shipping['name'] ],
+               ** ['name' => 'Correo electronico',        'value' => $client_shipping['email'] ],
+               ** ['name' => 'Pais',                      'value' => $client_shipping->country->name ],
+               ** ['name' => 'Cliente Recibe' ,           'value' => $client_reception['name'] ],
+               ** ['name' => 'Correo electronico',        'value' => $client_reception['email'] ],
+               ** ['name' => 'Pais',                      'value' => $client_reception->country->name ],
+               ** ['name' => 'Monto Enviado',             'value' => $new_transaction['money_sent'] ],
+               ** ['name' => 'Estatus de la transaccion', 'value' => $new_transaction->statu->name],
+                **/
             ];
             $receivers = $client_shipping['email'];
 
