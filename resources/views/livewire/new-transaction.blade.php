@@ -1,7 +1,20 @@
 
 <div class="mx-auto w-full bg-gray-100 h-auto" x-data="{ 'showModal': false }" @keydown.escape="showModal = false" x-cloak>
+    <div class='flex w-full justify-end grid grid-cols-2 gap-6 p-4'>
+        
+        <div class="flex justify-center">
+            <x-jet-input wire:model="search" placeholder="Buscar" class="bg-transparent w-56 border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-full focus:outline-none"/>
+            <x-jet-secondary-button class="ml-2 " wire:click="cleanFilter" style="padding: 0; box-shadow: none; background: unset; border: unset;">
+                <img src="{{ asset('images/tash.png') }}" class="h-8 mx-auto">
+            </x-jet-secondary-button>
+        </div>
+        <div class="flex justify-center">
+            <button type="button" class="bg-transparent w-56 border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-full" @click="showModal = true">Nueva transacción</button>
+        </div>
+        
+    </div>  
     <div class='flex w-full justify-end'>
-        <button type="button" class="bg-transparent border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-full" @click="showModal = true">Nueva transacción</button>
+       
     </div>  
     <div class='w-full mx-auto px-3'>  
         <div class="flex flex-col">

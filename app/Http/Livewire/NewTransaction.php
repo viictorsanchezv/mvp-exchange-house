@@ -17,16 +17,38 @@ class NewTransaction extends Component
 
     public $shipping_name, $shipping_email,$country_shipping, $reception_name, $reception_email, $reception_country;
     public $money_sent=0, $shipping_tax, $date_status;
+    protected $queryString = ['search'];
+    public $search;
+    public $clientR = '';
+    public $userT = '';
+
     
     public function render()
     {
         $countries = Country::all();
         
-        if(Auth::user()->rol_id > 1){
-            $transactions = Transaction::where('user_id' , Auth::user()->id)->orderByDesc('id')->paginate(10);
-        }else{
-            $transactions = Transaction::orderByDesc('id')->paginate(10);
+        if(Auth::user()->rol_id > 1)
+        {
+            $transactions = Transaction::where('user_id' , Auth::user()->id)->orderByDesc('id');
+            
+        
+        }else
+        {
+            $transactions = Transaction::orderByDesc('id');
         }
+
+        if ($this->search) 
+        {
+            $clientR = Client::where('name', 'like', '%'.$this->search.'%')->get('id');
+            $userT   = User::where('name', 'like', '%'.$this->search.'%')->get('id');
+
+
+            $transactions->whereIn('client_id', $clientR)
+                         ->orWhereIn('client_receiver_id', $clientR)
+                         ->orWhereIn('user_id', $userT);
+        }
+
+        $transactions = $transactions->paginate(10); 
 
         return view('livewire.new-transaction')->with('transactions', $transactions)->with('countries', $countries);
     }
@@ -109,6 +131,11 @@ class NewTransaction extends Component
         }    
         
     }
+    public function cleanFilter()
+    {
+        $this->search = "";
+    }
+
 
    
   
