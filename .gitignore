@@ -3,3 +3,6 @@ node_modules/
 
 .env
 .env.example
+
+composer.lock
+package-lock.jsonclear

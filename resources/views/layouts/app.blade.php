@@ -22,6 +22,8 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     </head>
     <body class="font-sans antialiased">
 
@@ -46,5 +48,7 @@
         @stack('modals')
 
         @livewireScripts
+
+        @yield('script')
     </body>
 </html>
