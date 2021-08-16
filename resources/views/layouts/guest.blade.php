@@ -18,6 +18,14 @@
 
         <!-- Alpine.js -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+        <!-- Graph  -->
+        <link rel="stylesheet" href="https://canvasjs.com/assets/css/jquery-ui.1.12.1.min.css">
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery-ui.1.12.1.min.js"></script>
+
+
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">

@@ -24,7 +24,7 @@ class TransactionFactory extends Factory
         return [
             'money_sent' => rand(10,1000),
             'shipping_rate' => rand(1,100),
-            'date_end' => $this->faker->dateTimeBetween('now', '+1 months'),
+            'date_end' => $this->faker->dateTimeBetween('now', '+12 months'),
 
             'user_id' => rand(1,10),
             'statu_id' => rand(1,3),

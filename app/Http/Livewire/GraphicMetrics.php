@@ -12,14 +12,15 @@ class GraphicMetrics extends Component
     public $days=array(),$profit=array();
     public $profitCountry=array(), $countries=array(); 
     public $count_transaction=array();
-    public function render()
-    {
+    public $transaction_list=array();
+    public $transaction_days =array();
+    public function render(){
 
-        $transaction_list = Transaction::groupBy('date_end')
+        $this->transaction_list = Transaction::groupBy('date_end')
         ->selectRaw('sum(money_sent) as money, date_end')
         ->pluck('money', 'date_end');
       
-        foreach($transaction_list as $key => $transaction){
+        foreach($this->transaction_list as $key => $transaction){
             array_push($this->days, $key);
             array_push($this->profit, round($transaction*($this->profit_percentage/100),0) );     
         }
@@ -44,7 +45,13 @@ class GraphicMetrics extends Component
             array_push($this->countries, $key);
             array_push($this->profitCountry, (int)round($row,0) );     
         }
-    
-        return view('livewire.graphic-metrics')->with('countries', $this->countries)->with('profitCountry', $this->profitCountry)->with('profit_percentage', $this->profit_percentage)->with('days', $this->days)->with('profit', $this->profit);
+        
+
+        foreach($this->transaction_list as $key => $row){
+            array_push($this->transaction_days, ['date' => $key, 
+                                                'sale' =>  $row*($this->profit_percentage/100)]);
+        }
+
+        return view('livewire.graphic-metrics')->with('countries', $this->countries)->with('profitCountry', $this->profitCountry)->with('profit_percentage', $this->profit_percentage)->with('days', $this->days)->with('profit', $this->profit)->with('transaction_days', $this->transaction_days);
     }
 }
