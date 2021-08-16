@@ -7,18 +7,48 @@ use App\Models\Transaction;
 use App\Models\Statu;
 use App\Models\Client;
 use App\Models\User;
+use App\Models\Rol;
 use App\Models\Country;
+use App\Mail\StatusTransaction;
+use Illuminate\Support\Facades\Mail;
 
 class NewTransaction extends Component
 {
 
     public $shipping_name, $shipping_email,$country_shipping, $reception_name, $reception_email, $reception_country;
     public $money_sent=0, $shipping_tax, $date_status;
+    protected $queryString = ['search'];
+    public $search;
+    public $clientR = '';
+    public $userT = '';
+
     
     public function render()
     {
         $countries = Country::all();
-        $transactions = Transaction::orderByDesc('id')->take(10)->get();
+        
+        if(Auth::user()->rol_id > 1)
+        {
+            $transactions = Transaction::where('user_id' , Auth::user()->id)->orderByDesc('id');
+            
+        
+        }else
+        {
+            $transactions = Transaction::orderByDesc('id');
+        }
+
+        if ($this->search) 
+        {
+            $clientR = Client::where('name', 'like', '%'.$this->search.'%')->get('id');
+            $userT   = User::where('name', 'like', '%'.$this->search.'%')->get('id');
+
+
+            $transactions->whereIn('client_id', $clientR)
+                         ->orWhereIn('client_receiver_id', $clientR)
+                         ->orWhereIn('user_id', $userT);
+        }
+
+        $transactions = $transactions->paginate(10); 
 
         return view('livewire.new-transaction')->with('transactions', $transactions)->with('countries', $countries);
     }
@@ -39,12 +69,13 @@ class NewTransaction extends Component
     public function store(){
         $user_id = Auth::user()->id;
         $this->validate([
-            'shipping_name'     => 'required|min:5',
+            'shipping_name'     => 'required',
+            'country_shipping'  => 'required',
             'shipping_email'    => 'required|email:rfc,dns',
-            'reception_name'    => 'required|min:5',
+            'reception_name'    => 'required',
             'reception_email'   => 'required|email:rfc,dns',
             'reception_country' => 'required',
-            'money_sent'        => 'required',
+            'money_sent'        => 'required|integer|min:10',
             'shipping_tax'      => 'required',
             'date_status'       => 'required',
             
@@ -77,5 +108,35 @@ class NewTransaction extends Component
 
         session()->flash('message', $new_transaction ? 'Transacción creada.' : 'Transacción no creada.');
         $this->resetCreateForm();
+
+        if($new_transaction){
+            $infoTransaction = [
+                $client_shipping['name'] ,
+                $client_shipping['email'] ,
+                $client_shipping->country->name ,
+                $client_reception['name'] ,
+                $client_reception['email'] ,
+                $client_reception->country->name ,
+                $new_transaction['money_sent'] ,
+                $new_transaction->statu->name,
+                $new_transaction['shipping_rate'] ,
+                $new_transaction['date_end'] 
+             
+            ];
+            $receivers = $client_shipping['email'];
+
+            //var_dump($infoTransaction);
+
+            Mail::to($receivers)->send(new StatusTransaction($infoTransaction));
+        }    
+        
     }
+    public function cleanFilter()
+    {
+        $this->search = "";
+    }
+
+
+   
+  
 }

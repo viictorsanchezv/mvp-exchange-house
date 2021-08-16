@@ -1,11 +1,24 @@
 
-<div class="mx-auto w-full bg-gray-100 h-screen" x-data="{ 'showModal': false }" @keydown.escape="showModal = false" x-cloak>
+<div class="mx-auto w-full bg-gray-100 h-auto" x-data="{ 'showModal': false }" @keydown.escape="showModal = false" x-cloak>
+    <div class='flex w-full justify-end grid grid-cols-2 gap-6 p-4'>
+        
+        <div class="flex justify-center">
+            <x-jet-input wire:model="search" placeholder="Buscar" class="bg-transparent w-56 border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-full focus:outline-none"/>
+            <x-jet-secondary-button class="ml-2 " wire:click="cleanFilter" style="padding: 0; box-shadow: none; background: unset; border: unset;">
+                <img src="{{ asset('images/tash.png') }}" class="h-4 mx-auto">
+            </x-jet-secondary-button>
+        </div>
+        <div class="flex justify-center">
+            <button type="button" class="bg-transparent w-56 border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-full" @click="showModal = true">Nueva transacción</button>
+        </div>
+        
+    </div>  
     <div class='flex w-full justify-end'>
-        <button type="button" class="bg-transparent border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-full" @click="showModal = true">Nueva transacción</button>
+       
     </div>  
     <div class='w-full mx-auto px-3'>  
         <div class="flex flex-col">
-            <div class=" sm:-mx-6 lg:-mx-0">
+            <div class=" sm:-mx-6 lg:-mx-0 overflow-x-auto">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-2">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
@@ -28,6 +41,9 @@
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Fecha
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Ver
                                     </th>
                                 </tr>
                             </thead>
@@ -56,6 +72,9 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                     {{ $transaction->date_end; }}
                                 </td>
+                                <td>
+                                    <a href='{{ "/transaction/$transaction->id" }}'>Ver</a>
+                                </td>
                                 </tr>
                             @endforeach
                                 <!-- More people... -->
@@ -70,9 +89,9 @@
 
 	<section class="flex flex-wrap p-4 h-12 items-center">
 		<!--Overlay-->
-		<div class="overflow-auto" style="background-color: rgba(0,0,0,0.5)" x-show="showModal" :class="{ 'absolute inset-0 z-10 flex items-center justify-center': showModal }">
+		<div class="overflow-auto  " style="background-color: rgba(0,0,0,0.5)" x-show="showModal" :class="{ 'fixed inset-0 z-10 flex items-center justify-center ': showModal }">
 			<!--Dialog-->
-			<div class="bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg py-4 text-left px-6" x-show="showModal" @click.away="showModal = false" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
+			<div class="bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg py-4 text-left px-6 m-auto justify-end" x-show="showModal" @click.away="showModal = false" x-transition:enter="ease-out duration-0" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-0" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
                   
                     <x-slot name="logo">
                         <x-jet-authentication-card-logo />
@@ -89,7 +108,7 @@
                         </div>
                         @endif
 
-
+                        <x-jet-validation-errors class="mb-4" />
                     <form>
                         @csrf
                         <div class="mt-4">
@@ -120,9 +139,7 @@
                             <x-jet-label for="reception_country" value="{{ __('Pais de Recepción *') }}" />
                             <select id='reception_country' name="reception_country" wire:model="reception_country" required class="border shadow p-2 bg-white w-full">
                                 <option value=''>Selecciona un pais</option>
-                                @foreach($countries as $country)
-                                    <option value={{ $country->id }}>{{ $country->name }}</option>
-                                @endforeach
+                                <option value='3'>Venezuela</option>
                             </select>
                         </div>
 
@@ -133,7 +150,7 @@
 
                         <div class="mt-4">
                             <x-jet-label for="money_sent" value="{{ __('Monto transacción *') }}" />
-                            <x-jet-input id="money_sent" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="number" name="money_sent"  required autofocus autocomplete="" wire:model="money_sent" />
+                            <x-jet-input id="money_sent" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="number" name="money_sent" required autofocus autocomplete="" wire:model="money_sent" />
                         </div>
 
                         <div class="mt-4">

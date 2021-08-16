@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Data;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,9 @@ Route::view('/', 'auth.login');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+
+Route::get('/transaction/{id}', [Data::class, 'render']);
+
+route::get('/update-transaction',[Data::class, 'store']);

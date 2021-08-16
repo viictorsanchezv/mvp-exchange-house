@@ -5,7 +5,7 @@
     </div>  
     <div class='w-full mx-auto px-3'>  
         <div class="flex flex-col">
-            <div class=" sm:-mx-6 lg:-mx-0">
+            <div class=" sm:-mx-6 lg:-mx-0 overflow-x-auto">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-2">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
@@ -55,7 +55,7 @@
                                 <!-- More people... -->
                             </tbody>
                         </table>
-                      <!--  {{ $users->links() }} -->
+                    
                     </div>
                 </div>
             </div>
@@ -64,9 +64,9 @@
 
 	<section class="flex flex-wrap p-4 h-12 items-center">
 		<!--Overlay-->
-		<div class="overflow-auto" style="background-color: rgba(0,0,0,0.5)" x-show="showModal" :class="{ 'absolute inset-0 z-10 flex items-center justify-center': showModal }">
+		<div class="overflow-auto" style="background-color: rgba(0,0,0,0.5)" x-show="showModal" :class="{ 'fixed inset-0 z-10 flex items-center justify-center': showModal }">
 			<!--Dialog-->
-			<div class="bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg py-4 text-left px-6" x-show="showModal" @click.away="showModal = false" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
+			<div class="bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg py-4 text-left px-6 m-auto justify-end" x-show="showModal" @click.away="showModal = false" x-transition:enter="ease-out duration-0" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-0" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
                   
                     <x-slot name="logo">
                         <x-jet-authentication-card-logo />
@@ -83,7 +83,7 @@
                         </div>
                         @endif
 
-
+                        <x-jet-validation-errors class="mb-4" />
                     <form>
                         @csrf
 
@@ -99,7 +99,12 @@
 
                         <div class="mt-4">
                             <x-jet-label for="rol" value="{{ __('Rol de usuario *') }}" />
-                            <x-jet-input id="rol" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="number" name="rol" required wire:model="rol"/>
+                            <select id='rol' name="rol" wire:model="rol" required class="border shadow p-2 bg-white w-full">
+                                <option value=''>Selecciona un rol</option>
+                                @foreach($rols as $rol)
+                                    <option value='{{ $rol->id }}'>{{ $rol->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="mt-4">

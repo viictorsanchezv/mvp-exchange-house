@@ -9,6 +9,7 @@ use App\Models\Statu;
 use App\Models\Country;
 use App\Models\Client;
 use App\Models\Transaction;
+use Illuminate\Support\Facades\Hash;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -25,5 +26,13 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create();
         Client::factory(30)->create();
         Transaction::factory(50)->create();
+        
+        User::create([
+            'name'              => 'Victor',
+            'email'             => 'ingsanchez423@gmail.com',
+            'password'          => Hash::make('Victor180710'),
+            'rol_id'            => 1,
+        ]);
+
     }
 }
