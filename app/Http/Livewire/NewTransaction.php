@@ -69,13 +69,13 @@ class NewTransaction extends Component
     public function store(){
         $user_id = Auth::user()->id;
         $this->validate([
-            'shipping_name'     => 'required|min:5',
+            'shipping_name'     => 'required',
             'country_shipping'  => 'required',
             'shipping_email'    => 'required|email:rfc,dns',
-            'reception_name'    => 'required|min:5',
+            'reception_name'    => 'required',
             'reception_email'   => 'required|email:rfc,dns',
             'reception_country' => 'required',
-            'money_sent'        => 'required',
+            'money_sent'        => 'required|integer|min:10',
             'shipping_tax'      => 'required',
             'date_status'       => 'required',
             

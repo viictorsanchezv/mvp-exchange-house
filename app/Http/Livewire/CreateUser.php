@@ -32,7 +32,7 @@ class CreateUser extends Component
     public function store(){
 
         $this->validate([
-            'name' => 'required|min:5',
+            'name' => 'required|min:2',
             'email' => 'required|unique:users|email:rfc,dns',
             'password' => 'required|min:5|confirmed',
             'password_confirmation' => 'required|min:5',

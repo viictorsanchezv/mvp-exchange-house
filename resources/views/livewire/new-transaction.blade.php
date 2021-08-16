@@ -5,7 +5,7 @@
         <div class="flex justify-center">
             <x-jet-input wire:model="search" placeholder="Buscar" class="bg-transparent w-56 border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-full focus:outline-none"/>
             <x-jet-secondary-button class="ml-2 " wire:click="cleanFilter" style="padding: 0; box-shadow: none; background: unset; border: unset;">
-                <img src="{{ asset('images/tash.png') }}" class="h-8 mx-auto">
+                <img src="{{ asset('images/tash.png') }}" class="h-4 mx-auto">
             </x-jet-secondary-button>
         </div>
         <div class="flex justify-center">
@@ -150,7 +150,7 @@
 
                         <div class="mt-4">
                             <x-jet-label for="money_sent" value="{{ __('Monto transacción *') }}" />
-                            <x-jet-input id="money_sent" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="number" name="money_sent"  required autofocus autocomplete="" wire:model="money_sent" />
+                            <x-jet-input id="money_sent" class="block mt-1 w-full px-2 font-normal text-sm h-8 border-2 border-black" type="number" name="money_sent" required autofocus autocomplete="" wire:model="money_sent" />
                         </div>
 
                         <div class="mt-4">
