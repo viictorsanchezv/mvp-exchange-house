@@ -41,12 +41,13 @@
                                                                 $
                                                             </span>
                                                         </div>
-                                                        <input type="number" name="inQuantity" id="inQuantity" class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-none py-3 px-6 leading-tight focus:outline-none  focus:border-gray-500" placeholder="0.00">
+                                                        <input type="number" name="inQuantity" id="inQuantity"  placeholder="0.00" required name="price" min="0"  step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$"
+                                                         onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'" class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-none py-3 px-6 leading-tight focus:outline-none  focus:border-gray-500" placeholder="0.00">
                                                         <div class="absolute inset-y-0 right-0 flex items-center">
                                                             <label for="currency" class="sr-only">Currency</label>
                                                             <select id="currency" name="currency" class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
-                                                                <option>COP</option>
                                                                 <option>USD</option>
+                                                                <option>COP</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -94,34 +95,32 @@
                                 <!-- first -->
                                 <div class="flex flex-col">
                                     <h6 class="text-gray-600 font-medium border-b border-gray-500 mx-1 px-1 my-4">Tipo de cambio</h6>
-                                    <div class="flex flex-col text-gray-600 text-base font-bold justify-center items-center border-b border-gray-500 mx-1 px-1 my-0 "><span>1.00 USD = 3,709.3656 COP</span></div>
+                                    <div class="flex flex-col text-gray-600 text-base font-bold justify-center items-center border-b border-gray-500 mx-1 px-1 my-0 "><span>1.00 USD = 3,709.36 COP</span></div>
                                     <div
                                     class="flex justify-between items-center w-full  " >
                                         <p class="text-gray-400 ml-4  overflow-clip">Monto de la Transferencia</p>
-                                        <p id="transfMont"  class="text-gray-900 mr-4">$</p>
+                                        <p id="transfMont"  class="text-gray-900 "></p>
                                     </div>
                                     <div class=" flex justify-between items-center w-full  ">
                                         <p class="text-gray-400 ml-4 overflow-clip">Cargo de la Transferencia</p>
-                                        <p class="text-gray-900 mr-4">+ $</p>
+                                        <p id = "transfCost" class="text-gray-900"></p>
                                     </div>
 
                                     <div class=" flex justify-between items-center w-full   border-b border-gray-500 mx-1 px-1 my-0">
                                         <p class="text-gray-400 ml-4 overflow-clip ">Total de la Transferencia</p>
-                                        <p class="text-gray-900 mr-4">$</p>
+                                        <p id= "transfTotal" class="text-gray-900 "></p>
                                     </div>
                                    
                                     <div
                                     class="flex justify-between items-center w-full">
                                     <p class="text-gray-400 ml-4">Total para el Destinatario</p>
-                                    <p class="text-gray-900 mr-4">$</p>
+                                    <p id="transfTotalDest"class="text-gray-900"></p>
                                     </div>
                                 <!-- end -->
                                 </div>
                             </div>
                             </div>
-                        <button
-                            class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 
-                            focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Crear transaccion</button>
+                       
                     </div>
                     <!-- End of about section -->
                     
@@ -137,13 +136,35 @@
 @section('script')
 <script>
     $(document).ready(function(){
+
         $("#inQuantity").change(function () {
             var value = $(this).val();
-
-            $("#outQuantity").val(value*3709,65);
+            var cambio = value*3709.36;
+            var commision =parseFloat(value*7/100) ;
+            var total = parseFloat(value) + parseFloat(commision);
+            $("#outQuantity").val(cambio);
             $("#transfMont").empty();
+            $("#transfMont").prepend("$ ");
             $("#transfMont").append(value);
+            $("#transfMont").append(" USD");
+            $("#transfCost").empty();
+            $("#transfCost").prepend("$ ");
+            $("#transfCost").append(commision);
+            $("#transfCost").append(" USD");
+            $("#transfTotal").empty();
+            $("#transfTotal").prepend("$ ");
+            $("#transfTotal").append(total);
+            $("#transfTotal").append(" USD");
+            $("#transfTotalDest").empty();
+            $("#transfTotalDest").prepend("$ ");
+            $("#transfTotalDest").append(cambio);
+            $("#transfTotalDest").append(" COP");
+           
         });
+
+      
+
+
     });
 </script>
 @endsection
